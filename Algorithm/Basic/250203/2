@@ -1,0 +1,17 @@
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        int idx = ( n % 2 == 1 ) ? 1:0;
+        
+        for(int i = idx; i <= n; i+= 2) {
+            if ( idx == 1 ) {
+                answer += i;
+            }
+            else {
+                answer += (i * i);
+            }
+        }
+        
+        return answer;
+    }
+}
