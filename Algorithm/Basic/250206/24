@@ -1,0 +1,22 @@
+class Solution {
+    public String solution(String my_string, int[] index_list) {
+        String answer = "";
+        /*
+        int idx = 0;
+        
+        for(int i = 0; i < index_list.length ; i++) {
+            idx = index_list[i];
+            answer = answer.concat( my_string.substring(idx,idx+1) );
+        }
+        
+        return answer;
+        */
+
+        // StringBuilder 사용 
+        StringBuilder sb = new StringBuilder();
+        for(int a : index_list) {
+            sb.append(my_string.charAt(a));
+        }
+        return sb.toString();
+    }
+}
