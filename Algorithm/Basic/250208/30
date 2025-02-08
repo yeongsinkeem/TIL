@@ -1,0 +1,16 @@
+class Solution {
+    public int solution(int[] num_list) {
+        int answer = 0;
+        int sum1 = 1;
+        int sum2 = 0;
+        
+        for(int a : num_list) {
+            sum1 *= a;
+            sum2 += a;
+        }
+        sum2 = sum2 * sum2;
+        answer = (sum1 < sum2) ? 1 : 0;
+        
+        return answer;
+    }
+}
