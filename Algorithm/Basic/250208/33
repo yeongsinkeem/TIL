@@ -1,0 +1,20 @@
+class Solution {
+    public String solution(String myString) {
+        String answer = "";
+        // 기존 내 코드 : 시간 오래 걸림
+        /*
+        char i = 'l';
+        
+        for( char c : myString.toCharArray() ) {
+            if ( (int) c < (int) i) {
+                c = 'l';
+            }
+            answer += c;
+        }
+        
+        return answer.toString();
+        */
+        answer = myString.replaceAll("[^l-z]", "l");
+        return answer;
+    }
+}
