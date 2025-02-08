@@ -1,0 +1,15 @@
+class Solution {
+    public String solution(String[] arr) {
+        String answer = "";
+        /* 
+        // 1. 반복문 사용 
+        for(String s : arr) {
+            answer += s;
+        }
+        */ 
+        
+        // 2. join 메서드 사용
+        answer = String.join("", arr);
+        return answer;
+    }
+}
