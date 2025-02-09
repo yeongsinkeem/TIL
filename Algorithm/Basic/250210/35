@@ -1,0 +1,25 @@
+class Solution {
+    public int solution(String binomial) {
+        int answer = 0;
+        
+        // 1. 문자열 공백 기준으로 잘라서 저장
+        String[] strArr = binomial.split("\\s");
+        int a = Integer.parseInt(strArr[0]);
+        int b = Integer.parseInt(strArr[2]);
+        
+        // 2. 연산자 구분
+        switch(strArr[1]) {
+            case "+":
+                answer = a + b;
+                break;
+            case "-":
+                answer = a - b;
+                break;
+            case "*":
+                answer = a * b;
+                break;
+        }
+        
+        return answer;
+    }
+}
