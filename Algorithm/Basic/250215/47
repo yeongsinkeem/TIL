@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr) {
+        int k = 1; 
+        // 1. 최소한의 2의 거듭제곱 찾기 
+        while(true) {
+            if ( arr.length <= k ) {
+                break;
+            }
+            k *= 2;
+        }
+        
+        // 2. 배열에 0 추가하기 
+        int[] answer = new int[k];
+        for(int j = 0 ; j < answer.length; j++) {
+            if ( j < arr.length ) {
+                answer[j] = arr[j];
+            }
+            else {
+                answer[j] = 0;
+            }
+        }
+        return answer;
+    }
+}
