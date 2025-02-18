@@ -1,0 +1,19 @@
+import java.util.*;
+
+class Solution {
+    public int solution(String[] strArr) {
+      HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
+
+      for( int i = 0; i < strArr.length; i++ ) {
+          int x = 1;
+          if ( map.containsKey(strArr[i].length()) ) {
+              x = map.get(strArr[i].length()) +1;
+          }
+          map.put(strArr[i].length(), x);
+      }
+
+      Integer maxValue = Collections.max(map.values());
+
+      return maxValue;
+    }
+}
