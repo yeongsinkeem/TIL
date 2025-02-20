@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public String[] solution(String myStr) {
+        List<String> lst = new ArrayList<>();
+        String s = "";
+        
+        for(char c : myStr.toCharArray()) {
+            int i = 0;
+            if( c != 'a' && c != 'b' && c != 'c' ) {
+                int idx = myStr.indexOf(c);
+                s += c + "";
+            }
+            else {
+                if ( !s.isEmpty() ){
+                lst.add(s);
+                s = "";
+                }
+            }
+        }
+        
+        if ( !s.isEmpty() ) {
+            lst.add(s);
+        }
+        
+        if (lst.size() == 0) {
+            String[] answer = new String[1];
+            answer[0] = "EMPTY";
+            return answer;
+        } 
+        
+        else {
+            String[] answer = new String[lst.size()];
+            for(int i = 0; i < answer.length; i++) {
+                answer[i] = lst.get(i);
+            }
+            return answer;
+        }
+    }
+}
