@@ -1,0 +1,17 @@
+class Solution {
+    public int[] solution(int n, int[] slicer, int[] num_list) {
+        int start = ( n == 1 ) ? 0 : slicer[0];
+        int end = ( n == 2 ) ? num_list.length - 1 : slicer[1];
+        int jump = ( n == 4 ) ? slicer[2] : 1;
+        int v =( end - start + jump) / jump;
+        
+        int[] answer = new int[v];
+        
+        for(int i = 0, j = start; j <= end; j += jump) {
+            answer[i] = num_list[j];
+            i++;
+        }
+        
+        return answer;
+    }
+}
