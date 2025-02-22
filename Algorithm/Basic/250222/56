@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr) {
+        List<Integer> lst = new ArrayList<>();
+        List<Integer> lst2 = new ArrayList<>();
+        
+        for(int i = 0; i < arr.length; i++) {
+            lst.add(arr[i]);
+        }
+        
+        int firstIdx = lst.indexOf(2);
+        int lastIdx = lst.lastIndexOf(2);
+        
+        // 2가 하나만 존재
+        if ( firstIdx == lastIdx && firstIdx != -1 ){
+            lst2.add(2);
+        }
+        // 2가 2개 이상 존재
+        else if ( firstIdx != lastIdx ) {
+            for(int i = firstIdx; i <= lastIdx ; i++) {
+                lst2.add(lst.get(i));
+            }
+        }
+        // 2가 존재 x
+        else {
+            lst2.add(-1);
+        }
+        
+        int[] answer = new int[lst2.size()];
+        for(int i = 0; i < answer.length; i++) {
+            answer[i] = lst2.get(i);
+        }
+        
+        return answer;
+    }
+}
