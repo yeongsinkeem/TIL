@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] arr) {
+        int answer = 0;
+        int[] prev = new int[arr.length];
+        int[] curr = new int[arr.length];
+
+        // 1. 원본 값 저장
+        for(int i = 0; i < arr.length; i++) {
+            curr[i] = arr[i];
+      }
+        while(true) {
+            // 2. prev에 이전 값 저장
+            for(int i = 0; i < curr.length; i++) {
+                  prev[i] = curr[i];
+            }
+            // 3. 반복문 진행 - curr 값 바뀜
+            for(int i = 0; i < prev.length; i++) {
+                if( curr[i] >= 50 && curr[i] % 2 == 0 ) {
+                      curr[i] /= 2;
+                }
+                else {
+                      curr[i] = curr[i] * 2 + 1;
+                }
+            }
+
+            if ( Arrays.equals(prev, curr) )
+                break;
+        }  
+        return answer;
+    }
+}
