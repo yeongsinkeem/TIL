@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr) {
+        List<Integer> stk2 = new ArrayList<>();
+        int i = 0;
+        
+        while( i < arr.length ){
+            if( stk2.isEmpty() ){
+                stk2.add(arr[i]);
+                i = i + 1;
+            }
+            else {
+                int last = stk2.get(stk2.size() -1);
+                if ( last < arr[i] ){
+                    stk2.add(arr[i]);
+                    i = i + 1;
+                }
+                else {
+                    stk2.remove(stk2.size() -1);
+                }
+            }
+        }
+        
+        int[] stk = new int[stk2.size()];
+        for(int j = 0; j < stk.length; j++){
+            stk[j] = stk2.get(j);
+        }
+        
+        return stk;
+    }
+}
