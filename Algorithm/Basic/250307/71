@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr, int[][] queries) {
+        int[] answer = new int[queries.length];
+        int min = 0;
+        
+        for( int i = 0; i < queries.length; i++ ) {
+            // 1. 부분 배열 생성 
+            int[] answer2 = Arrays.copyOfRange(arr, queries[i][0], queries[i][1] + 1);
+            // 2. k보다 큰 값 추출
+            List<Integer> lst = new ArrayList<>();
+            
+            for( int j = 0; j < answer2.length; j++ ) {               
+                if( answer2[j] > queries[i][2] ) {
+                    lst.add(answer2[j]);
+                }
+            }
+            // 3. lst에는 k보다 큰 값들만 있는 상황
+            if( lst.isEmpty() ) {
+                answer[i] = -1;
+            }
+            else {
+                answer[i] = Collections.min(lst);
+            }
+        }
+        
+        return answer;
+    }
+}
