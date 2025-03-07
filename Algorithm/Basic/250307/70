@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr, int k) {
+        List<Integer> lst = new ArrayList<>();
+        int count = 0;
+        
+        for(int i = 0; i < arr.length; i++) {
+            // 리스트에 원소가 없고 k보다 작을 때만
+            if( !lst.contains(arr[i]) && count < k ) {
+                lst.add(arr[i]);
+                count++;
+            }
+        }
+        
+        if( count < k ) {
+            for(int i = count; i < k; i++) {
+                lst.add(-1);
+            }
+        }
+        
+        int[] answer = new int[lst.size()];
+        for(int i = 0; i < answer.length; i++){
+            answer[i] = lst.get(i);
+        }
+        
+        return answer;
+    }
+}
