@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Solution {
+    public int[][] solution(int[][] arr) {
+        int rowLen = arr.length;
+        int colLen = arr[0].length;
+        
+        if ( rowLen < colLen ) {
+            // 행 < 열
+            // rowLen : 2, colLen : 4
+            int[][] col = new int[colLen][colLen];
+            
+            // 기존 값 복사
+            for(int i = 0; i < rowLen; i++){
+                for(int j = 0; j < colLen; j++) {
+                    col[i][j] = arr[i][j];
+                }
+            }
+            
+            // 남은 행 0으로 채우기
+            for(int i = rowLen; i < colLen; i++){
+                Arrays.fill(col[i], 0);
+            }
+            return col;
+        }
+        else if ( colLen < rowLen ) {
+            // 열 < 행
+            // rowLen : 4, colLen : 3
+            int[][] row = new int[rowLen][rowLen];
+            
+            // 기존 값 채우기
+            for(int i = 0; i < rowLen; i ++) {
+                for(int j = 0; j < colLen; j++) {
+                    row[i][j] = arr[i][j];
+                }
+                row[i][rowLen - 1] = 0;
+            }
+            
+            return row;
+        }
+        else {
+            return arr;
+        }
+        
+    }
+}
