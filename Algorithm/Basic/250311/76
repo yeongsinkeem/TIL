@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] rank, boolean[] attendance) {
+        int answer = 0;
+        int imp = 101;
+        
+        // 1. 참석 여부로 새로운 배열 생성
+        int[] sortRank = new int[rank.length];
+        for(int i = 0; i < rank.length; i++) {
+            if (attendance[i] == true) {
+                sortRank[i] = rank[i];
+            }
+            else {
+                sortRank[i] = imp;
+            }
+        }
+        // 2. 정렬
+        Arrays.sort(sortRank);
+        
+        // 3. 몇 번 학생인지
+        for(int i = 0; i < rank.length; i++) {
+            if(sortRank[0] == rank[i]) {
+                answer += i * 10000;
+            }
+            else if(sortRank[1] == rank[i]) {
+                answer += i * 100;
+            }
+            else if(sortRank[2] == rank[i]) {
+                answer += i;
+            }
+        }
+        
+        return answer;
+    }
+}
