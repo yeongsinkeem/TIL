@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> solution(int l, int r) {
+        int count = 0;
+        int[] answer = new int[r - l + 1];
+        List<Integer> answer2 = new ArrayList<>();
+        
+        for(int i = l; i <= r; i++) {
+            answer[count] = i;
+            count ++;
+        }
+        
+        // 1. l ~ r까지의 숫자 중
+        for(int i = 0; i < answer.length; i++) {
+            for( char c : Integer.toString(answer[i]).toCharArray() ) {
+                // 2. 숫자의 자릿수가 0 또는 5가 아니라면 null / 0 값
+                if ( !(c == '0' || c == '5') ) {
+                    answer[i] = -1;
+                }
+            }
+        }
+        
+        for(int i = 0; i < answer.length; i++) {
+            if(answer[i] > 0) {
+                answer2.add(answer[i]);
+            }
+        }
+        
+        if(answer2.isEmpty()) {
+            answer2.add(-1);
+        }
+        
+        return answer2;
+    }
+}
