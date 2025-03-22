@@ -1,0 +1,44 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        sc.close();
+
+        Sysetm.out.println(solution(a, b, c));
+    }
+
+    public static int solution(int a, int b, int c) {
+        int answer = 0;
+        int idx = 0;
+        int[] dice = {a, b, c};
+
+        // 1. 주사위 3개 모두 같은 경우
+        if( dice[0] == dice[1] && dice[1] == dice[2] ) {
+            answer = 10000 + (dice[0] * 1000);
+        }
+        // 2. 주사위 3개 모두 다른 경우 
+        else if( dice[0] != dice[1] && dice[1] != dice[2] && dice[0] != dice[2] ) {
+            Arrays.sort(dice);
+            answer = dice[2] * 100;
+        }
+        // 3. 주사위 2개 같은 경우
+        else {
+            int[] dice2 = new int[7];
+            for(int i = 0; i < dice.length; i++) {
+                idx = dice[i];
+                dice2[idx] += 1;
+            }
+
+            for(int i = 1; dice2.length; i++) {
+                if( dice2[i] == 2 ) {
+                    answer = 1000 + i * 100;
+                }
+            }
+        }
+        return answer;
+    }
+}
