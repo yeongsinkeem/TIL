@@ -1,0 +1,32 @@
+class Solution {
+    public String solution(String X, String Y) {
+        int[] xCount = new int[10];
+        int[] yCount = new int[10];
+        
+        // 1. 각 숫자의 등장 횟수 세기
+        for(char c : X.toCharArray()) {
+            xCount[ c - '0' ] ++;
+        }
+        for(char c : Y.toCharArray()) {
+            yCount[ c - '0' ] ++;
+        }
+        
+        StringBuilder result = new StringBuilder();
+        
+        // 2. 9부터 0까지 공통으로 등장한 숫자만큼 정답에 추가
+        for(int i = 9; i >= 0; i-) {
+            // 개수가 더 작은 거 기준으로
+            int common = Math.min(xCount[i], yCount[i]);
+            for(int j = 0; j < common; j++) {
+                result.append(i);
+            }
+        }
+        
+        // 공통 요소가 없다면 
+        if ( result.length() == 0 ) return "-1";
+        // 공통 요소가 전부 0
+        if ( result.charAt(0) == '0' ) return "0";
+        
+        return result.toString();
+    }
+}
