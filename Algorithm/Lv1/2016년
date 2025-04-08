@@ -1,0 +1,20 @@
+class Solution {
+    public String solution(int a, int b) {
+        // 달 준비
+        int[] month = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        // 요일 준비
+        String[] dow = { "FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU" };
+        
+        // 1. a - 1달까지의 일 수 더하기
+        int totalDays = 0;
+        for(int i = 0; i < a - 1; i++) {
+            totalDays += month[i];
+        }
+        
+        // 2. 해당 달의 일 수 더하기
+        totalDays += b - 1;
+        
+        return dow[totalDays % 7];
+       
+    }
+}
