@@ -1,0 +1,26 @@
+import java.util.*;
+
+class Main{
+    public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
+          // 문장 -> nextLine() 사용
+          String str = sc.nextLine();
+
+          int count = 0;
+          // 양 옆 공백 제거 
+          str = str.trim();
+          for(char c : str.toCharArray()) {
+                if( c == ' ' ) {
+                    count ++;
+              }
+          }
+
+          // 문자열은 공백으로 시작하거나 끝날 수 있다는 조건 
+          if( str.isEmpty() ) {
+              System.out.println(0);
+          }
+          else {
+              System.out.println(count + 1);
+          }
+      }
+}
