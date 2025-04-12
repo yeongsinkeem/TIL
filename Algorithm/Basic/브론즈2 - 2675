@@ -1,0 +1,20 @@
+import java.util.*;
+
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int total = sc.nextInt();
+        
+        for(int i = 0; i < total; i++) {
+            int count = sc.nextInt();
+            String s = sc.next();
+            String answer = "";
+            for(char c : s.toCharArray()) {
+                for(int j = 0; j < count; j++) {
+                    answer += c + "";
+                }
+            }
+            System.out.println(answer);
+        }
+    }
+}
